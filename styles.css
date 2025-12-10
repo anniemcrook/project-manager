@@ -1,0 +1,245 @@
+/*----------------------------------
+    GLOBAL STYLES
+----------------------------------*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Montserrat, sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px 20px 12vh; /* bottom padding prevents footer overlap */
+}
+
+.page-content {
+    margin-top: 12vh;   /* pushes content below fixed navbar */
+    margin-bottom: 6vh;
+}
+
+h1, h2 {
+    color: #2c3e50;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+h3 {
+    color: #34495e;
+    font-weight: 500;
+    font-size: 2rem;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+a {
+    color: #3498db;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+p {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/*----------------------------------
+    NAVBAR
+----------------------------------*/
+.navbar {
+    background-color: #5c82aa;
+    font-size: 17px;
+    padding: 10px 20px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.navbar .navbar-brand,
+.navbar .nav-link {
+    color: #ffffff !important;
+}
+.navbar .nav-link:hover,
+.navbar .navbar-brand:hover {
+    color: #dfe6ea !important;
+}
+
+/*----------------------------------
+    BUTTONS
+----------------------------------*/
+.btn {
+    border-radius: 5px;
+}
+
+button,
+.btn-primary {
+    background-color: #3498db;
+    border: none;
+}
+.btn-primary:hover {
+    background-color: #2c89c7;
+}
+
+.btn-secondary {
+    background-color: #7f8c8d;
+    border: none;
+}
+.btn-secondary:hover {
+    background-color: #707b7c;
+}
+.button-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    text-align: center;
+}
+
+
+/*----------------------------------
+    CARDS (Projects, Profile, Modals)
+----------------------------------*/
+.project-item {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.project-item .card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-item .btn {
+    margin-top: auto;
+}
+
+#profile-card {
+    margin: 40px auto 0;
+    padding: 20px;
+}
+
+/*----------------------------------
+    FORMS
+----------------------------------*/
+.form-container {
+    background: #fff;
+    padding: 25px 35px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 600px;
+    margin: 5vh auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.search-form label {
+    margin-top: 10px;
+}
+
+.is-invalid {
+    border-color: #e74c3c !important;
+}
+.is-valid {
+    border-color: #2ecc71 !important;
+}
+.invalid-feedback {
+    font-size: 0.85rem;
+    color: #e74c3c;
+    display: none;
+}
+
+/*----------------------------------
+    FOOTER
+----------------------------------*/
+footer {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding: 10px 0;
+    height: 8vh;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/*----------------------------------
+    MEDIA QUERIES — Mobile
+----------------------------------*/
+@media (max-width: 576px) {
+
+    h1 {
+        font-size: 1.8rem !important;
+    }
+    
+    h2 {
+        font-size: 1.3rem !important;
+    }
+
+    h3 {
+        font-size: 1rem !important;
+    }
+
+    p {
+        font-size: 0.85rem;
+    }
+
+    .navbar {
+        font-size: 16px;
+    }
+
+    .card {
+        font-size: smaller;
+        margin-top: 20px;
+        padding: 12px;
+    }
+
+    footer {
+        font-size: 0.6rem;
+        height: 6vh;
+    }
+
+    .form-container {
+        max-width: 95%;
+        padding: 15px 20px;
+        margin-top: 20px;
+        box-shadow: none;
+    }
+
+    .form-container .form-control {
+        font-size: 0.9rem;
+        padding: 8px 10px;
+    }
+
+    label {
+        font-size: 0.9rem;
+    }
+
+    #submit-btn,
+    .btn {
+        font-size: 0.9rem !important;
+        padding: 8px 12px !important;
+    }
+}
