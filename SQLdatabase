@@ -1,0 +1,208 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost
+-- Generation Time: Dec 06, 2025 at 06:27 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `projectwebsite`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `projects`
+--
+
+CREATE TABLE `projects` (
+  `pid` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `start_date` date NOT NULL,
+  `end_date` date DEFAULT NULL,
+  `short_description` text NOT NULL,
+  `phase` enum('design','development','testing','deployment','complete') DEFAULT NULL,
+  `uid` int(11) NOT NULL,
+  `created_at` datetime DEFAULT current_timestamp(),
+  `updated_at` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `projects`
+--
+
+INSERT INTO `projects` (`pid`, `title`, `start_date`, `end_date`, `short_description`, `phase`, `uid`, `created_at`, `updated_at`) VALUES
+(1, 'Cyber Defender', '2024-10-10', '2025-06-10', 'Create a defense system for a company website to protect sensitive data.', 'complete', 1, '2025-11-28 14:19:50', '2025-11-29 21:33:40'),
+(2, 'Smart Inventory Tracker', '2024-12-01', '2025-07-01', 'Create a tool that helps businesses track stock levels automatically and predict when items need restocking.', 'deployment', 2, '2025-11-28 14:39:58', '2025-11-28 14:39:58'),
+(3, 'AI Customer Helper', '2025-03-15', '2025-09-15', 'Develop a chatbot that answers customer questions and learns from past conversations.', 'deployment', 3, '2025-11-28 14:44:37', '2025-11-28 14:44:37'),
+(4, 'TaskFlow Manager', '2025-07-04', '2025-11-04', 'Build a project-tracking app where teams can assign tasks, set deadlines, and monitor progress.', 'deployment', 2, '2025-11-28 14:47:29', '2025-11-28 14:47:29'),
+(5, 'Travel Planner Pro', '2025-12-01', NULL, 'Build a system that recommends travel routes and alerts users about delays or cheaper options.', 'design', 1, '2025-11-29 20:58:02', '2025-11-29 20:58:02'),
+(6, 'Sales Forecast Engine', '2026-01-05', NULL, 'Develop a tool that predicts future sales using past data and market trends.', 'design', 6, '2025-12-01 20:16:18', '2025-12-01 20:16:18'),
+(8, 'Classroom Hub', '2025-04-06', '2025-12-01', 'Build an online space where teachers can post lessons, homework, and grades for students.', 'deployment', 3, '2025-12-03 10:25:42', '2025-12-03 10:25:42'),
+(9, 'Smart Traffic Watch', '2023-05-05', '2023-10-05', 'Create an app that analyses traffic data to predict busy times and suggest better routes.', 'complete', 3, '2025-12-03 10:25:42', '2025-12-03 10:25:42'),
+(10, 'Eco Home Monitor', '2024-09-07', '2025-03-05', 'Design a dashboard that tracks home energy use and gives tips to lower electricity bills.', 'complete', 4, '2025-12-03 10:25:42', '2025-12-03 10:25:42'),
+(11, 'Health Data Cleaner', '2024-11-07', '2025-07-05', 'Create a tool that checks medical records for mistakes and removes duplicate entries.', 'complete', 4, '2025-12-03 10:25:42', '2025-12-03 10:25:42'),
+(12, 'Water Tracker App', '2025-01-10', '2025-06-30', 'Develop a mobile app that reminds users to drink water and tracks their daily intake.', 'design', 2, '2025-12-03 10:25:42', '2025-12-03 10:25:42'),
+(13, 'Library Finder', '2024-03-15', '2024-09-01', 'Build a tool that helps users find nearby libraries and check opening hours.', 'development', 3, '2025-12-03 10:25:42', '2025-12-03 10:25:42'),
+(14, 'Park Safety Monitor', '2023-10-08', '2024-04-30', 'Create a system that alerts city workers when park equipment needs repair.', 'testing', 4, '2025-12-03 10:25:42', '2025-12-03 10:25:42'),
+(15, 'Recipe Recommender', '2025-02-01', '2025-08-20', 'Build an AI tool that suggests recipes based on ingredients people already have.', 'design', 2, '2025-12-03 10:25:42', '2025-12-03 10:25:42'),
+(16, 'Bus Route Optimiser', '2024-05-12', '2024-11-20', 'Analyse bus data to reduce wait times and improve route planning.', 'development', 5, '2025-12-03 10:25:42', '2025-12-03 10:25:42'),
+(17, 'Pet Health Tracker', '2023-11-21', '2024-05-14', 'Create an app that reminds pet owners of vet visits and medication schedules.', 'testing', 6, '2025-12-03 10:25:42', '2025-12-03 10:25:42'),
+(18, 'School Event Planner', '2024-06-01', '2024-10-15', 'Develop a scheduling tool for managing school activities and notifying parents.', 'deployment', 6, '2025-12-03 10:25:42', '2025-12-03 10:25:42'),
+(19, 'Smart Recycling Sorter', '2024-08-05', '2025-02-18', 'Build software to help recycling centres sort waste more efficiently using sensors.', 'development', 4, '2025-12-03 10:25:42', '2025-12-03 10:25:42'),
+(20, 'Campus Map 2.0', '2025-03-11', '2025-12-10', 'Create an interactive campus map with walking times and building info.', 'design', 5, '2025-12-03 10:25:42', '2025-12-03 10:25:42'),
+(21, 'Weather Alert System', '2023-12-15', '2024-08-01', 'Set up a system that sends early warnings about storms or extreme weather.', 'testing', 2, '2025-12-03 10:25:42', '2025-12-03 10:25:42'),
+(22, 'Garden Growth Monitor', '2024-04-20', '2024-12-01', 'Develop a tool that tracks plant growth and suggests ideal watering times.', 'complete', 3, '2025-12-03 10:25:42', '2025-12-03 10:25:42'),
+(23, 'Lost & Found Manager', '2024-07-02', '2024-09-30', 'Create a digital system to manage lost-and-found items for large venues.', 'deployment', 5, '2025-12-03 10:25:42', '2025-12-03 10:25:42'),
+(24, 'Student Notes Sync', '2025-01-05', '2025-07-19', 'Create a cloud system for students to sync notes across devices.', 'development', 4, '2025-12-03 10:25:42', '2025-12-03 10:25:42'),
+(121, 'Task Planner Pro', '2024-02-10', '2024-09-01', 'A planning tool that helps users organise daily tasks and sync them to calendars.', 'development', 1, '2025-12-05 18:17:16', '2025-12-05 18:17:16'),
+(122, 'Fitness Meal Coach', '2023-11-05', '2024-04-18', 'An app that generates personalised meal plans based on health goals.', 'testing', 2, '2025-12-05 18:17:16', '2025-12-05 18:17:16'),
+(123, 'Quiet Study Zones', '2024-06-22', '2024-12-15', 'A mapping tool that shows available quiet study spots across campus.', 'design', 3, '2025-12-05 18:17:16', '2025-12-05 18:17:16'),
+(124, 'Emergency Contact App', '2025-01-08', '2025-10-01', 'Create an app for instantly sharing location and emergency contacts.', 'deployment', 4, '2025-12-05 18:17:16', '2025-12-05 18:17:16'),
+(125, 'Language Buddy', '2023-09-12', '2024-05-02', 'A chat system that pairs users with native speakers for language exchange.', 'complete', 5, '2025-12-05 18:17:16', '2025-12-05 18:17:16'),
+(126, 'Library Auto-Renew', '2024-03-10', '2024-07-20', 'Automation tool that renews library books and notifies users before due dates.', 'design', 6, '2025-12-05 18:17:16', '2025-12-05 18:17:16'),
+(127, 'Smart Laundry Alerts', '2024-08-01', '2025-02-25', 'System that sends notifications when a washing machine becomes available.', 'testing', 7, '2025-12-05 18:17:16', '2025-12-05 18:17:16'),
+(128, 'Campus Ride Share', '2025-03-01', '2025-11-30', 'Carpool system to connect students going the same direction.', 'development', 8, '2025-12-05 18:17:16', '2025-12-05 18:17:16'),
+(129, 'Healthy Sleep Tracker', '2024-09-18', '2025-04-10', 'Monitor sleep patterns and suggest routines for better rest.', 'complete', 9, '2025-12-05 18:17:16', '2025-12-05 18:17:16'),
+(130, 'Exam Countdown', '2023-12-05', '2024-03-30', 'App that auto-creates countdown timers for all scheduled exams.', 'testing', 10, '2025-12-05 18:17:16', '2025-12-05 18:17:16'),
+(131, 'Garden Water Scheduler', '2024-04-11', '2024-10-02', 'Tool that generates watering schedules based on weather and soil data.', 'design', 11, '2025-12-05 18:17:16', '2025-12-05 18:17:16'),
+(132, 'Canteen Queue Monitor', '2024-06-07', '2024-12-03', 'Tracks real-time cafeteria wait times to reduce overcrowding.', 'deployment', 12, '2025-12-05 18:17:16', '2025-12-05 18:17:16'),
+(133, 'Eco Transport Dashboard', '2024-05-15', '2024-11-10', 'Analyse commuter habits and recommend greener travel options.', 'development', 13, '2025-12-05 18:17:16', '2025-12-05 18:17:16'),
+(134, 'Lost Pet Finder', '2023-10-14', '2024-04-22', 'A community tool for reporting and locating missing pets.', 'testing', 14, '2025-12-05 18:17:16', '2025-12-05 18:17:16'),
+(135, 'Smart Fitness Mirror', '2025-02-20', '2025-10-18', 'Virtual fitness mirror that displays real-time workout feedback.', 'design', 1, '2025-12-05 18:17:16', '2025-12-05 18:17:16'),
+(136, 'Recipe Nutrition Scanner', '2024-01-07', '2024-08-19', 'Reads recipes and calculates nutrition values instantly.', 'development', 2, '2025-12-05 18:17:16', '2025-12-05 18:17:16'),
+(137, 'Neighbourhood Safety Map', '2023-11-17', '2024-06-25', 'Displays safe walking routes based on lighting and foot traffic.', 'complete', 3, '2025-12-05 18:17:16', '2025-12-05 18:17:16'),
+(138, 'Air Quality Advisor', '2024-03-21', '2024-09-14', 'Recommends safe outdoor activity times based on pollution data.', 'testing', 4, '2025-12-05 18:17:16', '2025-12-05 18:17:16'),
+(139, 'School Trip Scheduler', '2024-05-09', '2024-12-12', 'Automates planning for school field trips with risk assessments.', 'deployment', 5, '2025-12-05 18:17:16', '2025-12-05 18:17:16'),
+(140, 'Youth Sports Team Hub', '2023-10-01', '2024-03-28', 'Manages training schedules, attendance, and match line-ups.', 'development', 6, '2025-12-05 18:17:16', '2025-12-05 18:17:16'),
+(141, 'Bike Repair Tracker', '2024-04-30', '2024-09-27', 'Tool for organising repair requests for shared bicycles.', 'testing', 7, '2025-12-05 18:17:16', '2025-12-05 18:17:16'),
+(142, 'Digital Textbook Updater', '2025-01-12', '2025-06-29', 'Keeps school e-books updated with latest chapters and corrections.', 'design', 8, '2025-12-05 18:17:16', '2025-12-05 18:17:16'),
+(143, 'Campus Events Feed', '2024-03-14', '2024-11-09', 'Unified feed for club events, workshops, and announcements.', 'deployment', 9, '2025-12-05 18:17:16', '2025-12-05 18:17:16'),
+(144, 'Mental Health Check-In', '2023-12-22', '2024-07-11', 'Daily well-being check-in with guided exercises.', 'complete', 10, '2025-12-05 18:17:16', '2025-12-05 18:17:16'),
+(145, 'Recycling Bin Sensor', '2024-02-04', '2024-09-03', 'Sensors report when bins are full to improve waste collection routes.', 'development', 11, '2025-12-05 18:17:16', '2025-12-05 18:17:16'),
+(146, 'Tutor Matchmaker', '2024-04-16', '2024-10-21', 'Pairs struggling students with available peer tutors.', 'testing', 12, '2025-12-05 18:17:16', '2025-12-05 18:17:16'),
+(147, 'Smart Water Fountain', '2023-11-19', '2024-05-02', 'Fountains track usage and report filter maintenance needs.', 'deployment', 13, '2025-12-05 18:17:16', '2025-12-05 18:17:16'),
+(148, 'Parking Availability App', '2024-02-26', '2024-08-15', 'Shows which campus parking spaces are free in real time.', 'design', 14, '2025-12-05 18:17:16', '2025-12-05 18:17:16'),
+(149, 'Virtual Quiet Room', '2025-03-08', '2025-09-09', 'Guided relaxation space with breathing and meditation tools.', 'development', 1, '2025-12-05 18:17:16', '2025-12-05 18:17:16'),
+(150, 'Health Habit Streaks', '2024-06-11', '2024-12-08', 'Gamifies healthy habits with points and streak rewards.', 'testing', 2, '2025-12-05 18:17:16', '2025-12-05 18:17:16'),
+(151, 'Student Budget Tracker', '2023-12-30', '2024-09-01', 'Helps students track spending and savings goals.', 'complete', 3, '2025-12-05 18:17:16', '2025-12-05 18:17:16'),
+(152, 'Volunteer Shift Manager', '2024-03-19', '2024-08-20', 'Manage volunteer sign-ups, shift swaps, and reminders.', 'development', 4, '2025-12-05 18:17:16', '2025-12-05 18:17:16'),
+(153, 'Smart Class Bell', '2024-05-25', '2024-12-01', 'Bell system adjusts based on schedule changes or delays.', 'testing', 5, '2025-12-05 18:17:16', '2025-12-05 18:17:16'),
+(154, 'Room Temperature Monitor', '2024-08-18', '2025-02-12', 'Tracks temperature across classrooms to improve comfort.', 'design', 6, '2025-12-05 18:17:16', '2025-12-05 18:17:16'),
+(155, 'Lost Item Scanner', '2024-01-14', '2024-05-14', 'Scan found items and match them to reports instantly.', 'deployment', 7, '2025-12-05 18:17:16', '2025-12-05 18:17:16'),
+(156, 'Dog Walking Scheduler', '2023-10-07', '2024-03-02', 'App that matches dog walkers with available pets.', 'development', 8, '2025-12-05 18:17:16', '2025-12-05 18:17:16'),
+(157, 'Lecture Note Summariser', '2025-02-10', '2025-07-22', 'AI tool that summarises long lecture videos into highlight notes.', 'design', 9, '2025-12-05 18:17:16', '2025-12-05 18:17:16'),
+(158, 'Canteen Nutrition Guide', '2024-03-04', '2024-09-24', 'Shows healthier meal choices in the school canteen.', 'development', 10, '2025-12-05 18:17:16', '2025-12-05 18:17:16'),
+(159, 'Virtual Art Gallery', '2023-09-27', '2024-02-28', 'Create an online gallery where students can show their artwork.', 'complete', 11, '2025-12-05 18:17:16', '2025-12-05 18:17:16'),
+(160, 'Campus Lighting Monitor', '2024-04-02', '2024-11-11', 'Detects broken lights across campus and alerts maintenance.', 'deployment', 12, '2025-12-05 18:17:16', '2025-12-05 18:17:16'),
+(161, 'Reading Challenge App', '2024-02-09', '2024-07-30', 'Tracks reading goals and awards badges for milestones.', 'testing', 13, '2025-12-05 18:17:16', '2025-12-05 18:17:16'),
+(162, 'AI Quiz Generator', '2024-05-13', '2024-10-20', 'Creates quizzes automatically based on textbook chapters.', 'design', 14, '2025-12-05 18:17:16', '2025-12-05 18:17:16'),
+(163, 'Attendance Scanner', '2023-11-11', '2024-06-05', 'Scan QR codes to take class attendance quickly.', 'development', 1, '2025-12-05 18:17:16', '2025-12-05 18:17:16'),
+(164, 'Virtual Sports Coach', '2024-06-17', '2025-01-12', 'App gives form feedback based on video recordings.', 'testing', 2, '2025-12-05 18:17:16', '2025-12-05 18:17:16'),
+(165, 'Carpool Fuel Saver', '2024-02-08', '2024-08-18', 'Calculates best carpool combinations to save fuel costs.', 'complete', 3, '2025-12-05 18:17:16', '2025-12-05 18:17:16'),
+(166, 'Lunch Menu Planner', '2023-10-21', '2024-04-02', 'Helps plan balanced weekly school lunch menus.', 'design', 4, '2025-12-05 18:17:16', '2025-12-05 18:17:16'),
+(167, 'Pet Adoption Matcher', '2024-01-09', '2024-08-01', 'Matches pets with ideal adopters based on lifestyle factors.', 'deployment', 5, '2025-12-05 18:17:16', '2025-12-05 18:17:16'),
+(168, 'Smart Whiteboard Notes', '2024-03-12', '2024-09-30', 'Digitises handwritten notes from whiteboards.', 'development', 6, '2025-12-05 18:17:16', '2025-12-05 18:17:16'),
+(169, 'Fitness Class Booker', '2024-05-01', '2024-10-19', 'Allows students to book gym or fitness class sessions.', 'testing', 7, '2025-12-05 18:17:16', '2025-12-05 18:17:16'),
+(170, 'Recycling Rewards App', '2023-09-05', '2024-03-21', 'Rewards users for scanning and recycling items.', 'complete', 8, '2025-12-05 18:17:16', '2025-12-05 18:17:16');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `uid` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `created_at` datetime DEFAULT current_timestamp(),
+  `updated_at` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `firstname` varchar(255) NOT NULL,
+  `lastname` varchar(255) NOT NULL,
+  `failed_attempts` int(11) DEFAULT 0,
+  `last_attempt` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`uid`, `username`, `email`, `password`, `created_at`, `updated_at`, `firstname`, `lastname`, `failed_attempts`, `last_attempt`) VALUES
+(1, 'johnsmith', 'example@aston.ac.uk', '$2y$10$DwBu6n1RnBXkCdi7YvitI.cRryiOEMd66wWMvfcH9Op3uDtnd9AGi', '2025-11-27 22:17:48', '2025-11-27 22:17:48', 'John', 'Smith', 0, NULL),
+(2, 'peter56', 'pmills@example.com', '$2y$10$kpnVmIWaCQHgPcq78pK1A.wr4KpJLvd3Z9.6rr7yTxmD252s18VXG', '2025-11-28 14:35:42', '2025-11-28 14:35:42', 'Peter', 'Mills', 0, NULL),
+(3, 'maryf', 'maryfranklin@example.com', '$2y$10$EhRaErVqNNjhCYT.82LqjOxwJqZlo4eHo8SpsIYyuih1apiajp11O', '2025-11-28 14:37:21', '2025-11-28 14:37:21', 'Mary', 'Franklin', 0, NULL),
+(4, 'liamm', 'lmiller@example.com', '$2y$10$hqgSOlslAAdNXTkWPvYviOKyWIz6ovz7.NJzVfeObvjVO9oaWJHLG', '2025-11-28 14:39:34', '2025-11-28 14:39:34', 'Liam', 'Miller', 0, NULL),
+(5, 'rosiep', 'rparson@example.com', '$2y$10$cQ9TM4CDsCO73kIyx8hhbelhnljvFPlSeLSV4mXiyV5TUSdgXS6B.', '2025-11-28 21:08:45', '2025-11-28 21:08:45', 'Rose', 'Parson', 0, NULL),
+(6, 'mikeroland', 'mproland@example.com', '$2y$10$wMSDZmqOjLNH5qdaUwHGw.uXvdVSwn2OiB/uQxNBCknDoaUhzhlS2', '2025-12-01 20:14:33', '2025-12-01 20:14:33', 'Michael', 'Roland', 0, NULL),
+(7, 'brianfox', 'brianfox@example.com', '$2y$10$phGiSgh6c55eT6goimeEHudlUOi/F2WBxIvHLgOOa1OCtio6Mwfn2', '2025-12-01 21:40:56', '2025-12-01 21:40:56', 'Brian', 'Fox', 0, NULL),
+(8, 'sammyhill', 'sammyhill@example.com', '$2y$10$DzOY4r4KVeE4Zr3dkTza6etYPiMz3fdEimj0HkRFjSOkXqcNw5EXK', '2025-12-01 21:42:58', '2025-12-01 21:42:58', 'Samantha', 'Hill', 0, NULL),
+(9, 'lindaj', 'lindajakeman@example.com', '$2y$10$MK01Q/b82p7bNJxOhC3UtuQqdo1ygXnROGtm58I0pwQVcSZ4rY7BG', '2025-12-01 21:57:56', '2025-12-01 21:57:56', 'Linda', 'Jakeman', 0, NULL),
+(10, 'ncrook51', 'nigelcrook@example.com', '$2y$10$suyxDK4xy9XIU05IXyVqRO4//xmv90el8PNjNAQFX/7F0ZjD2FAaq', '2025-12-03 21:54:07', '2025-12-03 21:54:07', 'Nigel', 'Crook', 0, NULL),
+(11, 'hpotter', 'hpotter@hogwarts.com', '$2y$10$e6A.GRWrCqL9kfg.vMvRk.MoXMVzaP581HM0Q2.HkaLN/5zRhN2GW', '2025-12-05 12:58:33', '2025-12-05 12:58:33', 'Harry', 'Potter', 0, NULL),
+(12, 'marcat', 'mcatter@example.com', '$2y$10$vV4EFfBtsMqNakJ4cxwbwODhDA9YvW/n.gYMPdMAlmDIfGtaqtHd.', '2025-12-05 13:21:50', '2025-12-05 13:21:50', 'Marge', 'Catter', 0, NULL),
+(13, 'sky86', 'skys@example.com', '$2y$10$tbjqaebpk8CBLg7omxnim.6wW40hPbKSq97LDbdXm0rc04CgbmqYa', '2025-12-05 13:22:45', '2025-12-05 13:22:45', 'Sky', 'Son', 0, NULL),
+(14, 'angelt', 'atree@example.com', '$2y$10$qC5rwJXGHTVNEOB6lI.4KuQB749uZG/sqheeqFCF8MjTFlm618Trm', '2025-12-05 13:25:51', '2025-12-05 13:25:51', 'Angel', 'Tree', 0, NULL),
+(15, 'mrclaus', 'scalvin@northpole.com', '$2y$10$WuhCokrevBiURSQcgDWUVuDMbQ/VplssuxDfEU1rrFuXIgiKf2s1q', '2025-12-05 21:35:18', '2025-12-05 21:35:18', 'Scott', 'Calvin', 0, NULL);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `projects`
+--
+ALTER TABLE `projects`
+  ADD PRIMARY KEY (`pid`),
+  ADD KEY `uid` (`uid`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`uid`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `projects`
+--
+ALTER TABLE `projects`
+  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=171;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `projects`
+--
+ALTER TABLE `projects`
+  ADD CONSTRAINT `projects_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `users` (`uid`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
